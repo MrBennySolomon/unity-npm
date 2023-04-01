@@ -1,16 +1,31 @@
 import React from "react";
-import { Unity, useUnityContext } from "react-unity-webgl";
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+import Home from "./MVC/View/pages/Home";
+import Root from "./MVC/View/pages/Root";
+import AddItem from "./MVC/View/pages/AddItem";
+import EditItem from "./MVC/View/pages/EditItem";
+import DeleteItem from "./MVC/View/pages/DeleteItem";
+import FindItem from "./MVC/View/pages/FindItem";
+import ErrorPage from "./MVC/View/pages/Error";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "/",       element: <Home /> },
+      { path: "/add",    element: <AddItem /> },
+      { path: "/edit",   element: <EditItem /> },
+      { path: "/delete", element: <DeleteItem /> },
+      { path: "/find",   element: <FindItem /> },
+    ]
+  }
+]);
 
 function App() {
-  const { unityProvider } = useUnityContext({
-    loaderUrl: "/Build/final-1.loader.js",
-    dataUrl: "/Build/final-1.data.unityweb",
-    frameworkUrl: "/Build/final-1.framework.js.unityweb",
-    codeUrl: "/Build/final-1.wasm.unityweb",
-  });
-
-  return <Unity unityProvider={unityProvider} />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

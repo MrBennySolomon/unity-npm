@@ -1,0 +1,20 @@
+import model from "../Model/Model";
+
+class Controller {
+
+  addItem = async (newItem) => {
+    await model.addItem();
+  }
+
+  getItem = async (id) => {
+    return await model.getItem(id)
+  }
+
+  deleteItem = async (id) => {
+    await model.deleteItem(id);
+  }
+
+  editItem = async (id, newItem) => {
+    await model.editItem(id, newItem);
+  }
+}
