@@ -18,3 +18,5 @@ class Controller {
     await model.editItem(id, newItem);
   }
 }
+
+export default Controller;

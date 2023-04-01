@@ -3,14 +3,14 @@ import                            '../../../styles/style.css';
 import                            '../../../styles/MainNavigation.modules.css';
 
 import { Link } from 'react-router-dom';
-import {useRef}              from 'react';
+import React, {useRef}              from 'react';
 
 const MainNavigation        = () => {
   const inputRef            = useRef();
 
 
   return (
-    <>
+    <React.Fragment>
       <div className="menu-wrap">
         <input ref={inputRef} type="checkbox" className="toggler"/>
         <div className="hamburger">
@@ -39,7 +39,7 @@ const MainNavigation        = () => {
           <li><Link to='/find'>Find & Take Me To The Item</Link></li>
         </ul>
       </nav>
-    </>
+    </React.Fragment>
     )
 }
 
